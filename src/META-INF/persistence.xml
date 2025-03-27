@@ -4,9 +4,11 @@
 		xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd" 
 		version="3.0">		
 		
-	<persistence-unit name="personPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="FirmaPU" transaction-type="RESOURCE_LOCAL">
 
-		<class>no.hvl.dat107.Person</class>
+		<class>no.hvl.dat107.entitet.Person</class>
+		<class>no.hvl.dat107.entitet.Avdeling</class>
+		<class>no.hvl.dat107.entitet.Prosjekt</class>
 		
 		<properties>
 		    <!--  Generelle JPA properties -->
