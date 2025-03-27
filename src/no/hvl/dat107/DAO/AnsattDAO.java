@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import no.hvl.dat107.entitet.Ansatt;
 
 public class AnsattDAO {
 	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("firmaPU");
