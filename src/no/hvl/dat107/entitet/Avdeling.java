@@ -10,8 +10,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Avdeling")
 
-
-
 public class Avdeling {
 
 	@Id
@@ -20,8 +18,11 @@ public class Avdeling {
 
 	@Column(nullable = false, unique = true)
 	private String sjef_id;
-	
 	private String navn;
+	
+	public int getAvdId() {
+		return avd_id;
+	}
 
 	public String getSjefId() {
 		return sjef_id;
@@ -38,7 +39,7 @@ public class Avdeling {
 
 	@Override
 	public String toString() {
-		
+		return "Avdeling [avd_id= " + avd_id + "sjef id= " + sjef_id + "navn= " + navn + "]";
 	}
 
 }
