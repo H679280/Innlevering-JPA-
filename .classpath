@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/f1-eksempel2-personer-jpa/lib/eclipselink-4.0.5.jar"/>
-	<classpathentry kind="lib" path="/f2-eksempel2-todos-losning/lib/postgresql-42.7.2.jar"/>
-	<classpathentry kind="lib" path="/f1-eksempel2-personer-jpa/lib/jakarta.persistence-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/postgresql-42.7.2.jar"/>
+	<classpathentry kind="lib" path="lib/jakarta.persistence-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/eclipselink-4.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
