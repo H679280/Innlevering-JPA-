@@ -63,11 +63,6 @@ INSERT INTO Ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, m
 SELECT *FROM ansatt; 
 
 SELECT *FROM avdeling; 
- 
-
---kobler avdeling til ansatt-- 
-
-ALTER TABLE Avdeling ADD COLUMN sjef_id INT UNIQUE; ALTER TABLE Avdeling ADD CONSTRAINT fk_sjef FOREIGN KEY (sjef_id) REFERENCES Ansatt(ansatt_id) ON DELETE RESTRICT; 
 
 UPDATE Avdeling SET sjef_id = 1 WHERE avd_id = 1; -- Gjør Veronika sjef for IT -- 
 
