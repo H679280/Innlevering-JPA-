@@ -17,13 +17,7 @@ CREATE TABLE Ansatt (
     etternavn VARCHAR(50) NOT NULL, 
     ansettelsesdato DATE NOT NULL, 
     stilling VARCHAR(50) NOT NULL, 
-    manedslonn NUMERIC(10,2) NOT NULL,
-    avd_id INTEGER NOT NULL,
-    prosjekt 
-    
-    CONSTRAINT AnsattFK FOREIGN KEY (avd_id) REFERENCES Avdeling(avd_id)
-    -- legger til kobling etter hvert--  
-
+    manedslonn NUMERIC(10,2) NOT NULL 
 ); 
 
  
@@ -32,23 +26,16 @@ CREATE TABLE Ansatt (
 
 CREATE TABLE Avdeling ( 
     avd_id  SERIAL PRIMARY KEY, 
-    navn VARCHAR(100) NOT NULL, 
-    sjef_id INTEGER,
+    navn VARCHAR(100) NOT NULL
     
-    CONSTRAINT AvdelingFK FOREIGN KEY (sjef_id) REFERENCES Ansatt(ansatt_id)
-    -- legger til ansatt_id senere-- 
-
 ); 
 
  
+ALTER TABLE Ansatt ADD COLUMN avd_id INT NOT NULL;
+ALTER TABLE Ansatt ADD CONSTRAINT avdFK FOREIGN KEY (avd_id) REFERENCES Avdeling(avd_id) ON DELETE RESTRICT;
+ALTER TABLE Avdeling ADD COLUMN sjef_id INTEGER;
+ALTER TABLE Avdeling ADD CONSTRAINT sjefFK FOREIGN KEY (sjef_id) REFERENCES Ansatt(ansatt_id);
 
--- kobler ansatt til avdeling-- 
-
-ALTER TABLE Ansatt ADD COLUMN avd_id INT NOT NULL; ALTER TABLE Ansatt ADD CONSTRAINT fk_avd FOREIGN KEY (avd_id) REFERENCES Avdeling(avd_id) ON DELETE RESTRICT; 
-
- 
-
--- legger til eksempelverdier-- 
 
 INSERT INTO Avdeling (navn) 
 VALUES  
