@@ -18,6 +18,12 @@ public class AnsattDAO {
         }
     }
 
+    
+    
+    // finnAnsattMedBN
+   // oppdaterStilling
+    // oppdaterLonn
+    // leggTilNyAnsatt
     public List<Ansatt> hentAlleAnsatte() {
         EntityManager em = emf.createEntityManager();
         try {
