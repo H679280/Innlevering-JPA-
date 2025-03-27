@@ -32,6 +32,7 @@ public class Avdeling {
 
     @Column(nullable = false)
     private String navn;
+    
 
     public int getAvdId() {
         return avd_id;
