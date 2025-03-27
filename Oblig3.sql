@@ -105,5 +105,3 @@ ALTER TABLE Avdeling ADD COLUMN sjef_id INT UNIQUE; ALTER TABLE Avdeling ADD CON
 UPDATE Avdeling SET sjef_id = 1 WHERE avd_id = 1; -- Gjør Veronika sjef for IT -- 
 
 UPDATE Avdeling SET sjef_id = 2 WHERE avd_id = 2; -- Gjør Idunn sjef for HR-- 
-
- 
