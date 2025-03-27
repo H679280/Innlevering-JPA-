@@ -28,8 +28,9 @@ public class Ansatt {
 	private double manedslonn;
 	
 	
+	
 	@ManyToOne
-	@JoinColumn (name = "avd_id")
+	@JoinColumn (name = "avd_id",nullable = false )
 	private Avdeling avdeling; 
 
 	
@@ -87,6 +88,10 @@ public class Ansatt {
 
 	public void setManedslonn(double manedslonn) {
 		this.manedslonn = manedslonn;
+	}
+	
+	public Avdeling getAvdeling() {
+		return avdeling;
 	}
 
 	@Override

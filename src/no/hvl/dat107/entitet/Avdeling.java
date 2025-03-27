@@ -27,13 +27,12 @@ public class Avdeling {
     private List<Ansatt> ansatte;
 
     @OneToOne
-    @JoinColumn(name = "ansatt_id")
-    private Ansatt sjef; 
+    @JoinColumn(name = "sjef_id", nullable = false, unique = true)
+    private Ansatt sjef;
 
     @Column(nullable = false)
     private String navn;
 
-    // Gettere og settere
     public int getAvdId() {
         return avd_id;
     }
@@ -46,8 +45,12 @@ public class Avdeling {
         return sjef;
     }
 
-    public void setSjef(Ansatt sjef) {
-        this.sjef = sjef;
+    public void setSjef(Ansatt sjef) { 
+    	
+        if (sjef.getAvdeling().getAvdId() != this.avd_id) {
+        	throw new IllegalArgumentException("Sjefen må jobbe i denne avdelingen");
+        }
+        this.sjef = sjef; 
     }
 
     public List<Ansatt> getAnsatte() {
