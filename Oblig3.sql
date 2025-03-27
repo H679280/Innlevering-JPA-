@@ -12,10 +12,10 @@ CREATE TABLE Ansatt (
     etternavn VARCHAR(50) NOT NULL, 
     ansettelsesdato DATE NOT NULL, 
     stilling VARCHAR(50) NOT NULL, 
-    manedslonn NUMERIC(10,2) NOT NULL 
+    manedslonn NUMERIC(10,2) NOT NULL
     -- evt koble til avdeling 
     (avd_id INT NOT NULL,  
-    FOREIGN KEY (avd_id) REFERENCES Avdeling(avd_id), ) ??  
+    FOREIGN KEY (avd_id) REFERENCES Avdeling(avd_id), )   
     
     ); 
     INSERT INTO Ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, manedslonn) 
@@ -27,11 +27,8 @@ CREATE TABLE Ansatt (
     ); 
     
     CREATE TABLE Avdeling ( 
-
     avd_id  SERIAL PRIMARY KEY, 
-
     navn VARCHAR(100) NOT NULL, 
-
-    sjef_id INT UNIQUE  
+    sjef_id INT UNIQUE 
     ); 
     
