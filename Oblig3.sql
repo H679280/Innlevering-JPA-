@@ -18,6 +18,7 @@ CREATE TABLE Ansatt (
     ansettelsesdato DATE NOT NULL, 
     stilling VARCHAR(50) NOT NULL, 
     manedslonn NUMERIC(10,2) NOT NULL 
+    
 ); 
 
  
