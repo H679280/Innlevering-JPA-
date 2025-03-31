@@ -19,9 +19,16 @@ public class AnsattDAO {
         }
     }
 
+    public Ansatt finnAnsattMedBN(String brukernavn) {
+    	EntityManager em = emf.createEntityManager();
+    	try {
+    		return em.createQuery("SELECT a from Ansatt a WHERE a.brukernavn = :brukernavn", Ansatt.class).getSingleResult();
+    	} finally {
+    		em.close();
+    	}
+    }
     
     
-    // finnAnsattMedBN
    // oppdaterStilling
     // oppdaterLonn
     // leggTilNyAnsatt
