@@ -10,7 +10,6 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import no.hvl.dat107.entitet.Ansatt.*;
 
-//Skal det ikkje være implementasjon av ein interface??
 import jakarta.persistence.TypedQuery;
 import no.hvl.dat107.entitet.Ansatt;
 import no.hvl.dat107.entitet.Avdeling;

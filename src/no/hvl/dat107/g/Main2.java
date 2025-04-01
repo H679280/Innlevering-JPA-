@@ -41,6 +41,7 @@ public class Main2{
 		private static void finnAnsattId() {
         System.out.print("Ansatt ID: ");
         int id = scanner.nextInt();
+        scanner.nextLine();
         Ansatt ansatt = ansattDAO.finnAnsattMedId(id);
         System.out.println(ansatt);
     }
