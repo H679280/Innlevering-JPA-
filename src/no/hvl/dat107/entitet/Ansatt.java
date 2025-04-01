@@ -12,13 +12,17 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
+<<<<<<< Updated upstream
 @Table(name = "Ansatt")
+=======
+@Table(name = "\"Ansatt\"", schema = "Firma")
+>>>>>>> Stashed changes
 
 public class Ansatt {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	private int Ansatt_id;
+	private int ansatt_id;
 	@Column(nullable = false, unique = true)
 	private String brukernavn;
 	private String fornavn;
@@ -39,7 +43,7 @@ public class Ansatt {
 	}
 
 	public void setAnsatt_id(int ansatt_id) {
-		this.Ansatt_id = ansatt_id;
+		this.ansatt_id = ansatt_id;
 	}
 
 	public String getBrukernavn() {
@@ -96,7 +100,7 @@ public class Ansatt {
 
 	@Override
 	public String toString() {
-		return "Ansatt [ansatt_id=" + Ansatt_id + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
+		return "Ansatt [ansatt_id=" + ansatt_id + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
 				+ etternavn + ", ansettelsesdato=" + ansettelsesdato + ", stilling=" + stilling + ", manedslonn="
 				+ manedslonn + "]";
 	}
