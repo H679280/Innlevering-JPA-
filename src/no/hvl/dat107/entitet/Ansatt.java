@@ -35,19 +35,14 @@ public class Ansatt {
 	private Avdeling avdeling; 
 	
 	
-<<<<<<< Updated upstream
-	// Fikse mer
-	@ManyToMany
-	@JoinColumn(name = "prosjekt_id")
-	private Prosjekt prosjekt;
+
+	
+	//@ManyToOne
+	//@JoinColumn(name = "prosjekt_id")
+	//private Prosjekt prosjekt;
 	
 	//@OneToMany(mappedBy="ansatt")
     //private List<Prosjektdeltagelse> deltagelser;
-=======
-//	@ManyToOne
-//	@JoinColumn(name = "prosjekt_id")
-//	private Prosjekt prosjekt;
->>>>>>> Stashed changes
 
 	
 	
@@ -111,9 +106,9 @@ public class Ansatt {
 		return avdeling;
 	}
 	
-	public void leggTilProsjektdeltagelse(Prosjektdeltagelse prosjektdeltagelse) {
+	//public void leggTilProsjektdeltagelse(Prosjektdeltagelse prosjektdeltagelse) {
         //TODO
-    }
+    //}
 
 	@Override
 	public String toString() {
