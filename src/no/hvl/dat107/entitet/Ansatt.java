@@ -35,6 +35,7 @@ public class Ansatt {
 	private Avdeling avdeling; 
 	
 	
+<<<<<<< Updated upstream
 	// Fikse mer
 	@ManyToMany
 	@JoinColumn(name = "prosjekt_id")
@@ -42,6 +43,11 @@ public class Ansatt {
 	
 	//@OneToMany(mappedBy="ansatt")
     //private List<Prosjektdeltagelse> deltagelser;
+=======
+//	@ManyToOne
+//	@JoinColumn(name = "prosjekt_id")
+//	private Prosjekt prosjekt;
+>>>>>>> Stashed changes
 
 	
 	
