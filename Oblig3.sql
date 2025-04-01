@@ -12,7 +12,7 @@ SET search_path TO Firma;
 
 CREATE TABLE Ansatt ( 
     ansatt_id SERIAL PRIMARY KEY, 
-    brukernavn VARCHAR(10) UNIQUE NOT NULL, 
+    brukernavn VARCHAR(4) UNIQUE NOT NULL, 
     fornavn VARCHAR(50) NOT NULL, 
     etternavn VARCHAR(50) NOT NULL, 
     ansettelsesdato DATE NOT NULL, 
