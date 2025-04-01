@@ -11,6 +11,7 @@ import no.hvl.dat107.DAO.AvdelingDAO;
 
 
 
+
 public class Main2{
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("FirmaPU");
 	private static EntityManager em = emf.createEntityManager();

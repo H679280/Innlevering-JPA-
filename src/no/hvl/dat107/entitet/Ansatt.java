@@ -7,12 +7,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "\"Ansatt\"", schema = "Firma")
+@Table(schema = "Firma")
 
 public class Ansatt {
 	@Id
@@ -28,10 +30,14 @@ public class Ansatt {
 	private double manedslonn;
 	
 	@ManyToOne
+	@JoinColumn(name = "avd_id")
 	private Avdeling avdeling; 
 	
-	@ManyToOne(targetEntity = Prosjekt.class)
-	private Prosjekt prosjekt;
+	
+	// Fikse mer
+	//@ManyToMany
+	//@JoinColumn(name = "prosjekt_id")
+	//private Prosjekt prosjekt;
 
 	
 	public int getAnsatt_id() {
