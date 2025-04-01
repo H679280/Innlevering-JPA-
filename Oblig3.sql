@@ -18,7 +18,6 @@ CREATE TABLE Ansatt (
     ansettelsesdato DATE NOT NULL, 
     stilling VARCHAR(50) NOT NULL, 
     manedslonn NUMERIC(10,2) NOT NULL 
-    
 ); 
 
  
@@ -28,7 +27,6 @@ CREATE TABLE Ansatt (
 CREATE TABLE Avdeling ( 
     avd_id  SERIAL PRIMARY KEY, 
     navn VARCHAR(100) NOT NULL
-    
 ); 
 
  
@@ -59,12 +57,49 @@ INSERT INTO Ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, m
 ('HH', 'Hanne', 'Haugen', '2021-07-21', 'Personalansvarlig', 62000, 2 
 ); 
 
- 
-
-SELECT *FROM ansatt; 
-
-SELECT *FROM avdeling; 
 
 UPDATE Avdeling SET sjef_id = 1 WHERE avd_id = 1; -- Gjør Veronika sjef for IT -- 
 
 UPDATE Avdeling SET sjef_id = 2 WHERE avd_id = 2; -- Gjør Idunn sjef for HR-- 
+
+
+--lager tabell for prosjekt--
+
+CREATE TABLE Prosjekt ( 
+    prosjekt_id  SERIAL PRIMARY KEY, 
+    navn VARCHAR(100) NOT NULL,
+    beskrivelse VARCHAR(200)
+); 
+
+
+--lager koblingstabell for prosjektdeltakelse--
+
+CREATE TABLE Prosjektdeltagelse (
+    ansatt_id INT NOT NULL,
+    prosjekt_id INT NOT NULL,
+    rolle VARCHAR(50) NOT NULL,
+    timer INT NOT NULL CHECK (timer >= 0), 
+    PRIMARY KEY (ansatt_id, prosjekt_id),
+    FOREIGN KEY (ansatt_id) REFERENCES Ansatt(ansatt_id) ON DELETE CASCADE,
+    FOREIGN KEY (prosjekt_id) REFERENCES Prosjekt(prosjekt_id) ON DELETE CASCADE
+);
+
+
+--eksempeldata for prosjekt--
+
+INSERT INTO Prosjekt (navn, beskrivelse) VALUES
+('Nytt HR-system', 'Utvikling av et nytt HR-administrasjonssystem'),
+('Regnskapsautomasjon', 'Automatisering av regnskapsføring for økonomiavdelingen'),
+('Cyber Security Audit', 'Sikkerhetsrevisjon for IT-avdelingen');
+
+
+--eksempeldata for prosjektdetagelse--
+
+INSERT INTO Prosjektdeltagelse (ansatt_id, prosjekt_id, rolle, timer) VALUES
+(1, 1, 'Prosjektleder', 100),
+(3, 1, 'Utvikler', 80),
+(2, 2, 'Prosjektleder', 120),
+(7, 2, 'Regnskapsfører', 95),
+(8, 2, 'Økonomisjef', 60),
+(4, 3, 'Systemadministrator', 110),
+(9, 3, 'Supportmedarbeider', 70);
