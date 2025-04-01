@@ -1,6 +1,7 @@
 package no.hvl.dat107.entitet;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,10 +36,14 @@ public class Ansatt {
 	
 	
 	// Fikse mer
-	//@ManyToMany
-	//@JoinColumn(name = "prosjekt_id")
-	//private Prosjekt prosjekt;
+	@ManyToMany
+	@JoinColumn(name = "prosjekt_id")
+	private Prosjekt prosjekt;
+	
+	//@OneToMany(mappedBy="ansatt")
+    //private List<Prosjektdeltagelse> deltagelser;
 
+	
 	
 	public int getAnsatt_id() {
 		return getAnsatt_id();
@@ -99,6 +104,10 @@ public class Ansatt {
 	public Avdeling getAvdeling() {
 		return avdeling;
 	}
+	
+	public void leggTilProsjektdeltagelse(Prosjektdeltagelse prosjektdeltagelse) {
+        //TODO
+    }
 
 	@Override
 	public String toString() {

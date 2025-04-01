@@ -27,7 +27,7 @@ public class Prosjekt {
     @Column(nullable = false)
     private String prosjektnavn;
     private String beskrivelse;
-    private int timer;
+
     
     
     public int getProsjektID() {
@@ -63,22 +63,12 @@ public class Prosjekt {
         this.ansatte = ansatte;
     }
     
-    public int getTimetall() {
-    	return timer;
-    }
-    
-    public void setTimetall(int t) {
-    	this.timer = t;
-    }
-    
-    public void addTimer(int t) {
-    	this.timer+=t;
-    }
+ 
 
 //Utskrift av liste av deltagere med rolle og timer
 	@Override
 	public String toString() {
-		return "Prosjekt [prosjekt_id= " + prosjekt_id + "prosjektnavn="+ prosjektnavn + "Liste over ansatte  " + ansatte + "totalt førte timer " + timer + "]";
+		return "Prosjekt [prosjekt_id= " + prosjekt_id + "prosjektnavn="+ prosjektnavn + "Liste over ansatte  " + ansatte + "]";
 	}
 
 }
