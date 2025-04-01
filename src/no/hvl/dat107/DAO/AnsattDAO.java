@@ -13,6 +13,7 @@ import no.hvl.dat107.entitet.Ansatt.*;
 //Skal det ikkje være implementasjon av ein interface??
 import jakarta.persistence.TypedQuery;
 import no.hvl.dat107.entitet.Ansatt;
+import no.hvl.dat107.entitet.Avdeling;
 
 
 public class AnsattDAO {
@@ -27,11 +28,37 @@ public class AnsattDAO {
         
         }
  
+<<<<<<< HEAD
     public Ansatt finnAnsattBrukernavn(String brukernavn) {
         TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :bn", Ansatt.class);
         query.setParameter("bn", brukernavn);
         return query.getSingleResult();
     }
+=======
+
+    public Ansatt finnAnsattMedBN(String brukernavn) {
+    	TypedQuery<Ansatt> q = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :brukernavn", Ansatt.class);
+    	q.setParameter("brukernavn",brukernavn);
+    	return q.getSingleResult();
+    }
+    
+    
+    public static void oppdaterStilling(String nystilling) {
+   
+    	String q1 = "UPDATE Ansatt SET stilling =" + nystilling + "WHERE ansatt_id=" + getAnsatt_id();
+    	try {
+    		//TODO
+    		
+    	} finally {
+    		    	}
+    }
+    
+    public static void oppdaterLonn(int nylonn) {
+    	//TODO
+    }
+
+   
+>>>>>>> 2d386e00823b6e94712a923fd561f17cf1c41113
     
    // oppdaterStilling
     public void oppdaterAnsatt(int id, String stilling,double nyLonn) {
@@ -45,7 +72,7 @@ public class AnsattDAO {
     }
     
     // leggTilNyAnsatt
-	public void leggTilAnsatt(Ansatt Ansatt) {
+	public void leggTilAnsatt(Ansatt Ansatt, Avdeling avd) {
 		em.getTransaction().begin();
         em.persist(Ansatt);
         em.getTransaction().commit();
