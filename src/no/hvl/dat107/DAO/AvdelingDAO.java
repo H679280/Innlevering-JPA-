@@ -19,4 +19,7 @@ public class AvdelingDAO {
 			em.close();
 		}
 	}
+	// Liste
+	
+	// oppdatere avdeling 
 }
