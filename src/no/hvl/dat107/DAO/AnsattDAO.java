@@ -13,6 +13,7 @@ import no.hvl.dat107.entitet.Ansatt.*;
 //Skal det ikkje være implementasjon av ein interface??
 import jakarta.persistence.TypedQuery;
 import no.hvl.dat107.entitet.Ansatt;
+import no.hvl.dat107.entitet.Avdeling;
 
 
 public class AnsattDAO {
@@ -27,19 +28,11 @@ public class AnsattDAO {
         
         }
  
-    public Ansatt finnAnsattBrukernavn(String brukernavn) {
-        TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :bn", Ansatt.class);
-        query.setParameter("bn", brukernavn);
-        return query.getSingleResult();
-    }
 
     public Ansatt finnAnsattMedBN(String brukernavn) {
-    	EntityManager em = em.createEntityManager();
-    	try {
-    		return em.createQuery("SELECT a from Ansatt a WHERE a.brukernavn = :brukernavn", Ansatt.class).getSingleResult();
-    	} finally {
-    		em.close();
-    	}
+    	TypedQuery<Ansatt> q = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :brukernavn", Ansatt.class);
+    	q.setParameter("brukernavn",brukernavn);
+    	return q.getSingleResult();
     }
     
     
@@ -71,7 +64,7 @@ public class AnsattDAO {
     }
     
     // leggTilNyAnsatt
-	public void leggTilAnsatt(Ansatt Ansatt) {
+	public void leggTilAnsatt(Ansatt Ansatt, Avdeling avd) {
 		em.getTransaction().begin();
         em.persist(Ansatt);
         em.getTransaction().commit();
