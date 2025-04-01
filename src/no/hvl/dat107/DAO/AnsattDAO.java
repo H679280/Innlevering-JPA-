@@ -6,22 +6,35 @@ import java.util.List;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+<<<<<<< Updated upstream
 import no.hvl.dat107.entitet.Ansatt.*;
 
 //Skal det ikkje være implementasjon av ein interface??
+=======
+import jakarta.persistence.TypedQuery;
+import no.hvl.dat107.entitet.Ansatt;
+>>>>>>> Stashed changes
 
 public class AnsattDAO {
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("firmaPU");
-
+	private EntityManager em;
+	
+	public AnsattDAO(EntityManager em) {
+		this.em = em;
+	}
+	
     public Ansatt finnAnsattMedId(int id) {
-        EntityManager em = emf.createEntityManager();
-        try {
-            return em.find(Ansatt.class, id);
-        } finally {
-            em.close();
+    	return em.find(Ansatt.class, id);
+        
         }
+ 
+    public Ansatt finnAnsattBrukernavn(String brukernavn) {
+        TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :bn", Ansatt.class);
+        query.setParameter("bn", brukernavn);
+        return query.getSingleResult();
     }
+<<<<<<< Updated upstream
 
     public Ansatt finnAnsattMedBN(String brukernavn) {
     	EntityManager em = emf.createEntityManager();
@@ -48,14 +61,30 @@ public class AnsattDAO {
     }
 
     
+=======
+    
+   // oppdaterStilling
+    public void oppdaterAnsatt(int id, String stilling, double nyLonn) {
+        em.getTransaction().begin();
+        Ansatt a = em.find(Ansatt.class, id);
+        if (a != null) {
+            a.setStilling(stilling);
+            a.setManedslonn(nyLonn);
+        }
+        em.getTransaction().commit();
+    }
+    
+>>>>>>> Stashed changes
     // leggTilNyAnsatt
+	public void leggTilAnsatt(Ansatt Ansatt) {
+		em.getTransaction().begin();
+        em.persist(Ansatt);
+        em.getTransaction().commit();
+	}
+
     public List<Ansatt> hentAlleAnsatte() {
-        EntityManager em = emf.createEntityManager();
-        try {
-            return em.createQuery("SELECT a FROM Ansatt2 a", Ansatt.class).getResultList();
-        } finally {
-            em.close();
+    	return em.createQuery("SELECT a FROM Ansatt a", Ansatt.class).getResultList();
         }
     }
-}
+
 
