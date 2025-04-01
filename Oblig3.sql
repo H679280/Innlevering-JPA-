@@ -54,8 +54,7 @@ INSERT INTO Ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, m
 ('KA', 'Kari', 'Andersen', '2018-11-30', 'Regnskapsfører', 58000, 3),  
 ('PB', 'Petter', 'Berg', '2020-04-14', 'Økonomisjef', 75000, 3),  
 ('ML', 'Marius', 'Lunde', '2023-01-10', 'Supportmedarbeider', 47000, 1),  
-('HH', 'Hanne', 'Haugen', '2021-07-21', 'Personalansvarlig', 62000, 2 
-); 
+('HH', 'Hanne', 'Haugen', '2021-07-21', 'Personalansvarlig', 62000, 2); 
 
 
 UPDATE Avdeling SET sjef_id = 1 WHERE avd_id = 1; -- Gjør Veronika sjef for IT -- 

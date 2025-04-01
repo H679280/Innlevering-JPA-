@@ -8,7 +8,7 @@ import no.hvl.dat107.entitet.Avdeling;
 
 public class AvdelingDAO {
 	
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("firmaPU");
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("FirmaPU");
 	
 	public Avdeling finnAvdelingMedId(int id) {
 	EntityManager em = emf.createEntityManager();

@@ -12,7 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Ansatt")
+@Table(name = "ansatt")
 
 public class Ansatt {
 	@Id
@@ -30,7 +30,7 @@ public class Ansatt {
 	@ManyToOne
 	private Avdeling avdeling; 
 	
-	@OneToMany
+	@ManyToOne(targetEntity = Prosjekt.class)
 	private Prosjekt prosjekt;
 
 	
