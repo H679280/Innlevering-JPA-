@@ -17,7 +17,9 @@ import jakarta.persistence.Table;
 public class Ansatt {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	
+	private int Ansatt_id;
+	@Column(nullable = false, unique = true)
 	private String brukernavn;
 	private String fornavn;
 	private String etternavn;
@@ -36,7 +38,7 @@ public class Ansatt {
 	}
 
 	public void setAnsatt_id(int ansatt_id) {
-		this.id = ansatt_id;
+		this.Ansatt_id = ansatt_id;
 	}
 
 	public String getBrukernavn() {
@@ -93,7 +95,7 @@ public class Ansatt {
 
 	@Override
 	public String toString() {
-		return "Ansatt [ansatt_id=" + id + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
+		return "Ansatt [ansatt_id=" + Ansatt_id + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
 				+ etternavn + ", ansettelsesdato=" + ansettelsesdato + ", stilling=" + stilling + ", manedslonn="
 				+ manedslonn + "]";
 	}

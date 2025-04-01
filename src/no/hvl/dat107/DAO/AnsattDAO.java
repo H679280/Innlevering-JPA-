@@ -8,14 +8,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-<<<<<<< Updated upstream
 import no.hvl.dat107.entitet.Ansatt.*;
 
 //Skal det ikkje være implementasjon av ein interface??
-=======
 import jakarta.persistence.TypedQuery;
 import no.hvl.dat107.entitet.Ansatt;
->>>>>>> Stashed changes
+
 
 public class AnsattDAO {
 	private EntityManager em;
@@ -34,10 +32,9 @@ public class AnsattDAO {
         query.setParameter("bn", brukernavn);
         return query.getSingleResult();
     }
-<<<<<<< Updated upstream
 
     public Ansatt finnAnsattMedBN(String brukernavn) {
-    	EntityManager em = emf.createEntityManager();
+    	EntityManager em = em.createEntityManager();
     	try {
     		return em.createQuery("SELECT a from Ansatt a WHERE a.brukernavn = :brukernavn", Ansatt.class).getSingleResult();
     	} finally {
@@ -60,11 +57,10 @@ public class AnsattDAO {
     	//TODO
     }
 
-    
-=======
+   
     
    // oppdaterStilling
-    public void oppdaterAnsatt(int id, String stilling, double nyLonn) {
+    public void oppdaterAnsatt(int id, String stilling,double nyLonn) {
         em.getTransaction().begin();
         Ansatt a = em.find(Ansatt.class, id);
         if (a != null) {
@@ -74,7 +70,6 @@ public class AnsattDAO {
         em.getTransaction().commit();
     }
     
->>>>>>> Stashed changes
     // leggTilNyAnsatt
 	public void leggTilAnsatt(Ansatt Ansatt) {
 		em.getTransaction().begin();
