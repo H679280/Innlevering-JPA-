@@ -12,11 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-<<<<<<< Updated upstream
-@Table(name = "Ansatt")
-=======
 @Table(name = "\"Ansatt\"", schema = "Firma")
->>>>>>> Stashed changes
 
 public class Ansatt {
 	@Id
