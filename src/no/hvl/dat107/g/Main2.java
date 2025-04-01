@@ -12,7 +12,7 @@ import no.hvl.dat107.DAO.AvdelingDAO;
 
 
 public class Main2{
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ansattPU");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("FirmaPU");
 	private static EntityManager em = emf.createEntityManager();
 	private static AnsattDAO ansattDAO = new AnsattDAO(em);
 	private static AvdelingDAO avdelingDAO = new AvdelingDAO();
@@ -48,7 +48,7 @@ public class Main2{
     private static void finnAnsattBrukernavn() {
         System.out.print("Brukernavn: ");
         String brukernavn = scanner.next();
-        Ansatt ansatt = ansattDAO.finnAnsattBrukernavn(brukernavn);
+        Ansatt ansatt = ansattDAO.finnAnsattMedBN(brukernavn);
         System.out.println(ansatt);
     }
     
